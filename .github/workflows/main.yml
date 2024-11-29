@@ -1,20 +1,25 @@
 on:
-  push:
-    branches:
-      - master2
-
-
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-
-
-    steps:
-      - name 'testing'
-        run: pwd 
-
-      - name 'testing2'
-        run: echo Ahmed              
-
-
+    push:
+      branches:
+        - master2
+  
+  jobs:
+    build:
+      runs-on: ubuntu-latest
+  
+      steps:
+        - uses: actions/checkout@v3
+        - name: Test
+          run: pwd
+  
+        - name: Print
+          run: echo mo
+  
+        - name: "Login to Docker hub"
+          run: docker login --username ${{ secrets.DOCKER_USERNAME }} --password ${{ secrets.DOCKER_TOKEN }}
+  
+        - name: "Building docker image"
+          run: docker build -t ${{ secrets.DOCKER_USERNAME }}/task-2 .
+  
+        - name: "Push"
+          run: docker push ${{ secrets.DOCKER_USERNAME }}/task-2
