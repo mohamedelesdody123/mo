@@ -17,7 +17,9 @@ jobs:
         run: pwd
 
       - name: Print Message
-        run: echo "Hello from GitHub Actionss"
+        run: |
+          echo "Hello from GitHub Actions"
+          echo "Hello from GitHub Actionss"
 
       - name: Login to Docker Hub
         run: |
