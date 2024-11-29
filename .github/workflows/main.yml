@@ -1,19 +1,20 @@
 on:
   push:
     branches:
-        - master2
+      - master2
 
 
 
 jobs:
-    build:
-        runs-on: ubuntu-latest
+  build:
+    runs-on: ubuntu-latest
 
 
-        steps:
-          - name 'testing'
-              run: pwd    
-              - name 'testing2'
-              run: echo Ahmed              
+    steps:
+      - name 'testing'
+        run: pwd 
+
+      - name 'testing2'
+        run: echo Ahmed              
 
 
