@@ -1,0 +1,1 @@
+java -cp "C:\Users\beboe\Downloads\jade.jar" jade.Boot -gui
