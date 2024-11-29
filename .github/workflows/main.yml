@@ -1,25 +1,30 @@
+name: Docker Workflow
+
 on:
-    push:
-      branches:
-        - master2
-  
-  jobs:
-    build:
-      runs-on: ubuntu-latest
-  
-      steps:
-        - uses: actions/checkout@v3
-        - name: Test
-          run: pwd
-  
-        - name: Print
-          run: echo mo
-  
-        - name: "Login to Docker hub"
-          run: docker login --username ${{ secrets.DOCKER_USERNAME }} --password ${{ secrets.DOCKER_TOKEN }}
-  
-        - name: "Building docker image"
-          run: docker build -t ${{ secrets.DOCKER_USERNAME }}/task-2 .
-  
-        - name: "Push"
-          run: docker push ${{ secrets.DOCKER_USERNAME }}/task-2
+  push:
+    branches:
+      - master2  
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Print Current Directory
+        run: pwd
+
+      - name: Print Message
+        run: echo "Hello from GitHub Actions"
+
+      - name: Login to Docker Hub
+        run: |
+          docker login --username ${{ secrets.DOCKER_USERNAME }} --password ${{ secrets.DOCKER_TOKEN }}
+
+      - name: Build Docker Image
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/task-2 .
+
+      - name: Push Docker Image
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/task-2
