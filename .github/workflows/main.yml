@@ -3,7 +3,7 @@ name: Docker Workflow
 on:
   push:
     branches:
-      - master2  
+      - master2  # تأكد من الفرع الصحيح
 
 jobs:
   build:
