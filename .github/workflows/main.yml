@@ -11,7 +11,7 @@ jobs:
 
 
         steps:
-            - name 'testing'
+          - name 'testing'
               run: pwd    
               - name 'testing2'
               run: echo Ahmed              
